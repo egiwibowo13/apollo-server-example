@@ -23,6 +23,6 @@ export const startApolloServer = async () => {
   await databaseConnection.sync();
 
   app.register(server.createHandler());
-
+  app.get('/', (req, res) => res.send('Hello World'));
   await app.listen(4000);
 };
