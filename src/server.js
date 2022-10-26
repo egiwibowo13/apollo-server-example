@@ -17,7 +17,7 @@ export const startApolloServer = async () => {
     resolvers,
   });
 
-  const server = createApolloServer([permissions], { app, schema });
+  const server = createApolloServer([permissions.generate(schema)], { app, schema });
   await server.start();
 
   await databaseConnection.sync();
